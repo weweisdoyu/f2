@@ -1,0 +1,182 @@
+
+
+1. Ban
+Strategi pendistribusian:
+
+Bengkel motor/mobil
+
+Toko onderdil
+
+Online
+
+Toko retail besar (Ace Hardware, dll)
+
+
+2. Kenalpot
+Strategi pendistribusian:
+
+Toko sparepart khusus knalpot
+
+Bengkel modifikasi
+
+Online
+
+Komunitas motor
+
+
+3. Busi
+Strategi pendistribusian:
+
+Toko sparepart
+
+Bengkel umum
+
+Online
+
+Distributor resmi
+
+
+4. Pelek
+Strategi pendistribusian:
+
+Toko velg
+
+Bengkel modifikasi
+
+Online
+
+Pameran otomotif
+
+
+5. Kampas rem
+Strategi pendistribusian:
+
+Toko sparepart rem
+
+Bengkel
+
+Online
+
+Distributor OEM
+
+
+6. Spion
+Strategi pendistribusian:
+
+Toko aksesori motor/mobil
+
+Online
+
+Bengkel cat/modif
+
+Dealer resmi
+
+
+7. Klaker (Laher/Bearing)
+Strategi pendistribusian:
+
+Toko teknik
+
+Bengkel
+
+Online
+
+Distributor industri
+
+
+8. Bel motor
+Strategi pendistribusian:
+
+Toko sparepart
+
+Bengkel
+
+Online
+
+Toko listrik kendaraan
+
+
+9. Sok motor (Shockbreaker)
+Strategi pendistribusian:
+
+Bengkel suspensi
+
+Toko sparepart
+
+Online
+
+Komunitas otomotif
+
+
+10. Lampu motor/mobil
+Strategi pendistribusian:
+
+Toko lampu kendaraan
+
+Bengkel
+
+Online
+
+Event otomotif
+
+
+11. Oli mesin
+Strategi pendistribusian:
+
+SPBU
+
+Bengkel
+
+Minimarket
+
+Online
+
+
+12. Aki
+Strategi pendistribusian:
+
+Toko aki khusus
+
+Bengkel
+
+Toko online
+
+Dealer resmi
+
+
+13. Filter udara
+Strategi pendistribusian:
+
+Bengkel
+
+Toko sparepart
+
+Online
+
+Marketplace otomotif
+
+
+14. Rantai motor
+Strategi pendistribusian:
+
+Toko sparepart
+
+Bengkel
+
+Online
+
+Komunitas mekanik
+
+
+15. Tutup pentil ban (aksesoris)
+Strategi pendistribusian:
+
+Toko aksesori
+
+Online
+
+Bengkel
+
+Pameran modifikasi
+
+
