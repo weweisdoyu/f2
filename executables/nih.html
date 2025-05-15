@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Analisis Soal Matematika</title>
+
+<!-- MathJax untuk render LaTeX -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<style>
+  /* Style dasar gelap seperti contoh */
+  body {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 2rem 3rem;
+    line-height: 1.7;
+  }
+  h1, h2 {
+    color: #f0f0f0;
+    margin-bottom: 0.5rem;
+  }
+  h2 {
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.3rem;
+    margin-top: 2rem;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+  .boxed {
+    display: inline-block;
+    background: #2b2b2b;
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-family: monospace;
+    margin-top: 0.5rem;
+  }
+  /* Style khusus untuk sistem persamaan */
+  .system {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin-top: 0.5rem;
+    font-family: monospace;
+    white-space: pre-wrap;
+  }
+</style>
+</head>
+<body>
+
+<h1>📝 Analisis Soal</h1>
+
+<section>
+  <h2>Soal 3: Sistem Persamaan Linear Tiga Variabel</h2>
+  <p><strong>Penyelesaian:</strong></p>
+  <p class="boxed">x = 1, y = 3, z = 2</p>
+</section>
+
+<section>
+  <h2>Soal 4: Perhatikan Grafik Berikut</h2>
+  <p><strong>Pertanyaan:</strong> Sistem pertidaksamaan yang sesuai dengan grafik di atas adalah ...</p>
+  <p><strong>Penyelesaian:</strong></p>
+
+  <p>Grafik menunjukkan daerah yang diarsir oleh beberapa garis lurus. Langkah-langkah untuk menentukan sistem pertidaksamaan:</p>
+
+  <ul>
+    <li>Garis pertama melalui titik (0,10) dan (11,0):
+\[
+      \text{Gradien} = \frac{0 - 10}{11 - 0} = -\frac{10}{11}
+\]
+      Persamaan garis:
+\[
+      y = -\frac{10}{11}x + 10
+\]
+      Dalam bentuk standar:
+\[
+      10x + 11y = 110 \implies 10x + 11y \leq 110
+\]
+    </li>
+
+    <li>Garis kedua melalui titik (0,5) dan (6,0):
+\[
+      \text{Gradien} = \frac{0 - 5}{6 - 0} = -\frac{5}{6}
+\]
+      Persamaan garis:
+\[
+      y = -\frac{5}{6}x + 5
+\]
+      Dalam bentuk standar:
+\[
+      5x + 6y = 30 \implies 5x + 6y \geq 30
+\]
+    </li>
+
+    <li>Batas-batas x dan y:
+\[
+      0 \leq x \leq 6, \quad y \geq 0
+\]
+    </li>
+  </ul>
+
+  <p>Maka sistem pertidaksamaan adalah:</p>
+  <div class="system">
+\[
+  \begin{cases}
+  10x + 11y \leq 110 \\
+  5x + 6y \geq 30 \\
+  0 \leq x \leq 6 \\
+  y \geq 0
+  \end{cases}
+\]
+  </div>
+
+  <p class="boxed">b</p>
+</section>
+
+<section>
+  <h2>Soal 5: Kontraktor Membangun Rumah</h2>
+  <p><strong>Pertanyaan:</strong></p>
+  <p>Seorang kontraktor akan membangun rumah tipe A dan tipe B dengan luas tanah 10,000 m². Luas rumah tipe A diperlukan luas tanah 100 m² dan tipe B diperlukan luas tanah 75 m². Jumlah rumah yang dibangun paling banyak 125 unit. Tentukan model matematika dari permasalahan tersebut!</p>
+  
+  <p><strong>Penyelesaian:</strong></p>
+  
+  <p>Misalkan: <br />
+  x: jumlah rumah tipe A <br />
+  y: jumlah rumah tipe B
+  </p>
+  
+  <p>Model matematika:</p>
+  <div class="system">
+\[
+  \begin{cases}
+  100x + 75y \leq 10,000 \\
+  x + y \leq 125 \\
+  x \geq 0 \\
+  y \geq 0
+  \end{cases}
+\]
+  </div>
+</section>
+
+</body>
+</html>
