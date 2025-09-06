@@ -1,0 +1,118 @@
+-- INS Dev - Tap to Teleport (Super Anti-Detect 10 Layer)
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+
+local teleportEnabled = false
+local lastPosition = nil
+local lastTeleportTime = 0
+local minTeleportInterval = 0.15 -- layer 2: acak cooldown
+local maxTeleportOffset = 2 -- layer 1: offset acak
+
+-- Fungsi teleport aman + jitter + offset
+local function teleportTo(position)
+    local char = LocalPlayer.Character
+    if char and char:FindFirstChild("HumanoidRootPart") then
+        local offset = Vector3.new(
+            (math.random()-0.5)*maxTeleportOffset,
+            (math.random()-0.5)*maxTeleportOffset,
+            (math.random()-0.5)*maxTeleportOffset
+        )
+        local targetCFrame = CFrame.new(position + Vector3.new(0,3,0) + offset) * CFrame.Angles(
+            math.rad((math.random()-0.5)*5),
+            math.rad((math.random()-0.5)*5),
+            0
+        )
+        char.HumanoidRootPart.CFrame = targetCFrame
+        lastPosition = position
+    end
+end
+
+-- UI Setup
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "INSDev_TapTeleport_AntiDetect"
+ScreenGui.Parent = game:GetService("CoreGui") -- agar UI tidak hilang saat respawn
+ScreenGui.ResetOnSpawn = false
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0,160,0,50)
+MainFrame.Position = UDim2.new(0.05,0,0.8,0)
+MainFrame.BackgroundColor3 = Color3.fromRGB(40,40,40)
+MainFrame.BorderSizePixel = 2
+MainFrame.Parent = ScreenGui
+MainFrame.Active = true
+MainFrame.Draggable = true
+
+local ToggleButton = Instance.new("TextButton")
+ToggleButton.Size = UDim2.new(0.65,0,1,0)
+ToggleButton.Position = UDim2.new(0,0,0,0)
+ToggleButton.BackgroundColor3 = Color3.fromRGB(0,150,255)
+ToggleButton.TextColor3 = Color3.fromRGB(255,255,255)
+ToggleButton.Text = "Teleport: OFF"
+ToggleButton.Font = Enum.Font.SourceSansBold
+ToggleButton.TextSize = 16
+ToggleButton.Parent = MainFrame
+
+local CloseButton = Instance.new("TextButton")
+CloseButton.Size = UDim2.new(0.35,0,1,0)
+CloseButton.Position = UDim2.new(0.65,0,0,0)
+CloseButton.BackgroundColor3 = Color3.fromRGB(200,0,0)
+CloseButton.TextColor3 = Color3.fromRGB(255,255,255)
+CloseButton.Text = "X"
+CloseButton.Font = Enum.Font.SourceSansBold
+CloseButton.TextSize = 20
+CloseButton.Parent = MainFrame
+
+-- Toggle Teleport
+ToggleButton.MouseButton1Click:Connect(function()
+    teleportEnabled = not teleportEnabled
+    if teleportEnabled then
+        ToggleButton.Text = "Teleport: ON"
+        ToggleButton.BackgroundColor3 = Color3.fromRGB(0,255,100)
+    else
+        ToggleButton.Text = "Teleport: OFF"
+        ToggleButton.BackgroundColor3 = Color3.fromRGB(0,150,255)
+    end
+end)
+
+-- Close UI
+CloseButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = false
+end)
+
+-- Layer 8: Anti-spam / input cooldown
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if not teleportEnabled then return end
+    if not Mouse.Target then return end
+    if tick() - lastTeleportTime < minTeleportInterval then return end
+
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        local targetPos = Mouse.Hit.p
+        if not lastPosition or (targetPos - lastPosition).Magnitude > 1.5 then
+            teleportTo(targetPos)
+            lastTeleportTime = tick()
+        end
+    end
+end)
+
+-- Layer 10: dummy movement / micro jitter
+RunService.RenderStepped:Connect(function()
+    if teleportEnabled and LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        if math.random() < 0.02 then
+            local hrp = LocalPlayer.Character.HumanoidRootPart
+            hrp.CFrame = hrp.CFrame * CFrame.new(
+                (math.random()-0.5)*0.1,
+                0,
+                (math.random()-0.5)*0.1
+            )
+        end
+    end
+end)
+
+-- Optional: pastikan teleport tetap jalan saat respawn
+LocalPlayer.CharacterAdded:Connect(function(char)
+    lastPosition = nil -- reset posisi terakhir agar aman
+end)
